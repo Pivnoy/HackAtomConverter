@@ -1,0 +1,28 @@
+
+
+body {
+  background-color: #1E90FF;
+      margin: 50px 0 0 0;
+  color: #fff;
+  font-family: 'Indie Flower', cursive;
+  font-size: 48px;
+  font-weight: normal;
+  text-align: center;
+}
+
+
+h1 {
+  margin: 50px 0 0 0;
+  color: #fff;
+  font-family: 'Indie Flower', cursive;
+  font-size: 48px;
+  font-weight: normal;
+  text-align: center;
+form {
+  width: 450px;
+  height: 370px;
+  margin: -185px -225px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
