@@ -1,7 +1,6 @@
+import os
+
 from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
-from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -13,7 +12,7 @@ def index(request):
 
 
 def handle_uploaded_file(filename, userfile):
-    filename += '.mp3'
-    file = open(filename, 'wb+')
+    newFile = './audioInputFiles/'+filename+'.mp3'
+    file = open(newFile, 'wb+')
     for chunk in userfile.chunks():
         file.write(chunk)
