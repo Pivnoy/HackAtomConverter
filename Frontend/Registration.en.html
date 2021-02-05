@@ -15,7 +15,7 @@
 				<form action="#" method="post">
 					<input class="text" type="text" name="Username" placeholder="Username" required="">
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" name="password" placeholder="Password" required="">
+					<input class="text" type="password" name="password" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" placeholder="Password([A-Z]+[a-z]+[0-9])" required="">
 					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
 					<div class="wthree-text">
 						<div class="clear"> </div>
@@ -31,7 +31,7 @@
     <p><a href="Registration.ru.html">Русская версия </a></p>
     <!-- //main -->
 </body>
-<a> <img src="Images/atom2.png" width="885" height="509"
+<a> <img src="../Images/atom2.png" width="885" height="509"
      />
 </a>
 </html>

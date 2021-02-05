@@ -22,7 +22,7 @@ form {
   width: 450px;
   height: 370px;
   margin: -185px -225px;
-  position: absolute;
+  position: center;
   left: 50%;
   top: 50%;
 }
