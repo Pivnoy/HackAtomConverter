@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+from aifc import Error
 
 from vosk import Model, KaldiRecognizer, SetLogLevel
 import sys
 import os
 import json
 import subprocess
-#from punctuator import Punctuator
+# from punctuator import Punctuator
 
 MODELS_DIR = 'models'
 MODELS = {
