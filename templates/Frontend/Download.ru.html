@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css">
+ <head>
+     <h1>Загрузка MP3</h1>
+     <meta charset="utf-8">
+ <title>Отправка файла MP3</title>
+ </head>
+<body>
+<form enctype="multipart/form-data" method="post">
+    <p><input type="file" name="f" multiple accept="audio/mp3">
+        <input type="submit" value="Отправить"></p>
+    <p>Загрузка</p>
+    <progress max="100" value="5">
+        Загрузка: <span id="value">5</span>%
+    </progress>
+</form>
+<p><a href="Index.html"> English version </a></p>
+<a> <img src="Images/atom2.png" width="900" height="512"
+     />
+</a>
+<script> let value = 1
+
+function Lang() {
+if (value === 1) {
+changeLang1();
+value = 0
+} else {
+changeLang2();
+value = 1
+}
+}
+
+function changeLang1() {
+let val = document.getElementsByClassName('load');
+let val1 = document.getElementsByClassName('load1');
+let val2 = document.getElementsByClassName('load2');
+let val3 = document.getElementsByClassName('load3');
+
+val[0].innerText = 'Load MP3'
+val1[0].innerText = 'Sending an MP3 file'
+val2[0].innerText = 'Load'
+val3[0].innerText = 'Load:'
+document.getElementById('input1').setAttribute('value','Send')
+document.getElementById('button1').setAttribute('value', 'Русская версия')
+
+}
+
+function changeLang2() {
+let val = document.getElementsByClassName('load');
+let val1 = document.getElementsByClassName('load1');
+let val2 = document.getElementsByClassName('load2');
+let val3 = document.getElementsByClassName('load3');
+
+val[0].innerText = 'Загрузить MP3'
+val1[0].innerText = 'Отправить MP3 файл'
+val2[0].innerText = 'Загрузить'
+val3[0].innerText = 'Загрузить:'
+document.getElementById('input1').setAttribute('value','Отправить')
+document.getElementById('button1').setAttribute('value', 'English Version')
+}
+
+function sendData() {
+let xhr = new XMLHttpRequest();
+xhr.open('POST','')
+xhr.send()
+}
+</script>
+</body>
+</html>

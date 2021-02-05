@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Welcome to our Audioconverter!    Please, sign up!</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="#" method="post">
+                    {% csrf_token %}
+                {% for field in form %}
+                  <p>
+                  {{ field.label_tag }}
+                  <br>
+                  {{ field }}
+                  {% if field.help_text %}
+                      <small>{{ field.help_text }}</small>
+                      {% endif %}
+                  {% for error in field.errors %}
+                      <p>{{ error }}</p>
+                      {% endfor %}
+                    </p>
+                    {% endfor %}
+                    <input class="text" type="text" name="Username" placeholder="Username" required="">
+					<input class="text email" type="email" name="email" placeholder="Email" required="">
+					<input class="text" type="password" name="password" minlength="8" maxlength="30" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" placeholder="Password([A-Z]+[a-z]+[0-9])" required="">
+					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+					<div class="wthree-text">
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p>Have an Account? <a href="Login.en.html"> Login here</a></p>
+			</div>
+		</div>
+		<ul class="colorlib-bubbles">
+		</ul>
+	</div>
+    <p><a href="Registration.ru.html">Русская версия </a></p>
+    <!-- //main -->
+</body>
+<a> <img src="../Images/atombeta.png" width="885" height="509"
+     />
+</a>
+</html>
