@@ -1,5 +1,6 @@
 import os
-
+import psycopg2
+import uuid
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
@@ -9,15 +10,30 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     if request.method == 'POST':
-        handle_uploaded_file(request.POST['name'], request.FILES['aud'])
+        handle_uploaded_file(request.FILES['aud'])
     return render(request, 'index.html')
 
 
-def handle_uploaded_file(filename, userfile):
+def handle_uploaded_file(userfile):
+    filename = str(uuid.uuid4())
     newFile = './audioInputFiles/' + filename + '.mp3'
     file = open(newFile, 'wb+')
     for chunk in userfile.chunks():
         file.write(chunk)
+    dataBaseWorker(filename, newFile)
+
+
+def dataBaseWorker(fileName, pathToFile):
+    con = psycopg2.connect(
+        database="hackatom",
+        user="lubovmakareva",
+        password="",
+        host="127.0.0.1",
+        port="5432"
+    )
+    cursor = con.cursor()
+    cursor.execute("INSERT INTO TAB (audio, path, proc) VALUES (%s, %s, %s)", (fileName, pathToFile, False))
+    con.commit()
 
 
 def signup(request):

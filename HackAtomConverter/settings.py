@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'HackAtomConverter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'datas',
-        'USER': 'admin',
-        'PASSWORD': '*******',
+        'NAME': 'hackatom',
+        'USER': 'lubovmakareva',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
