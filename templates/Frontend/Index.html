@@ -31,7 +31,7 @@
     <form enctype="multipart/form-data" method="post">
     {% csrf_token %}
     <p><input type="file" name="aud" multiple accept="audio/mp3"></p>
-    <p><input class="send"  id="input1" type="submit" value="Отправить" onclick="sendData()"></p>
+    <p><input class="send"  id="input1" type="submit" value="Отправить" ></p>
     <p class="load2"> Загрузка</p>
     <progress max="100" value="5" class="load3">
     Загрузка: <span id="value">5</span>%
@@ -111,9 +111,7 @@ document.getElementById('button1').setAttribute('value', 'English Version')
 }
 
 function sendData() {
-let xhr = new XMLHttpRequest();
-xhr.open('POST','')
-xhr.send()
+    window.red
 }
 </script>
 </html>

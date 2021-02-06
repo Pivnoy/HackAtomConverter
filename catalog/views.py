@@ -1,6 +1,8 @@
 import os
 import psycopg2
 import uuid
+import glob, os
+from django.core.files import File
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
@@ -11,7 +13,16 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     if request.method == 'POST':
         handle_uploaded_file(request.FILES['aud'])
+        return render(request, 'Frontend/Download.html')
     return render(request, 'Frontend/Index.html')
+
+
+def download_file(request):
+    file = open('OutputFiles/pizda.txt', 'rb')
+    myFile = File(file)
+    response = HttpResponse(myFile, content_type='file')
+    response['Content-Disposition'] = 'attachment; filename=input.txt'
+    return response
 
 
 def handle_uploaded_file(userfile):
@@ -34,6 +45,8 @@ def dataBaseWorker(fileName, pathToFile):
     cursor = con.cursor()
     cursor.execute("INSERT INTO TAB (audio, path, proc) VALUES (%s, %s, %s)", (fileName, pathToFile, False))
     con.commit()
+    cursor.execute("SELECT FROM TAB WHERE audio=%s", fileName)
+    row = cursor.fetchall()
 
 
 def signup(request):

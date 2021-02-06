@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
    <style>
        header {
-    background-image: url("Images/atombeta1.png"); left:50%; background-size: 15% auto;
+    background-image: url("../../static/Images/atombeta1.png"); left:50%; background-size: 15% auto;
        background-repeat: no-repeat;}
    </style>
 <header>
@@ -19,7 +21,7 @@
 </header>
 
 <head>
-    <a href="" download="" title="Txt file">
+    <a type="file" >
 	<button>Скачать</button>
 </a>
     <meta charset="UTF-8">
