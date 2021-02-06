@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css">
+<style>
+       header {
+    background-image: url("Images/atombeta1.png"); left:50%; background-size: 15% auto;
+       background-repeat: no-repeat;}
+</style>
+<title class="title2">Атом.Регистрация</title>
+<header>
+<title class="title2">Загрузка файлов MP3</title>
+    <h1 class="title1">   Аудиоконвертер Атом</h1>
+    <nav class="menu">
+  <ul>
+    <li><a class="link1" href="Login.html"> Вход</a></li>
+    <li><a class="link2"  href="Registration.en.html"> Регистрация</a></li>
+    <li><a class="link3" href="Index.html">Загрузка MP3</a></li>
+  </ul>
+</nav>
+</header>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+	<a><!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1 class="please">Пожалуйста, зарегестрируйтесь</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="#" method="post">
+					<input class="user" type="text" name="Username" placeholder="Имя пользователя" required="">
+					<input class="mail"  type="email" name="email" placeholder="Почта" required="">
+					<input class="password" type="password" name="password" minlength="8" maxlength="30" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" placeholder="Пароль" required="">
+					<input class="confirm" type="password" name="password" placeholder="Подтвердить пароль" required="">
+					<div class="wthree-text">
+						<div class="clear"> </div>
+					</div>
+					<input class="send" type="submit" value="Отправить">
+				</form>
+				<p class="login?"> Уже есть аккаунт? <a class="in" href="Login.en.html"> Войти</a></p>
+			</div>
+		</div>
+    </div>
+        </a>
+		<ul class="colorlib-bubbles">
+		</ul>
+	</div>
+    <a> <img src="Images/atombeta.png"></a>
+<p><input id="button1" type="button" onclick="Lang()" value="English version" ></p>
+
+    <!-- //main -->
+<script>
+let value = 1
+
+function Lang() {
+    if (value === 1) {
+        changeLang1();
+        value = 0
+    } else {
+        changeLang2();
+        value = 1
+    }
+}
+
+let placeholder = 1
+
+function Lang() {
+    if (placeholder === 1) {
+        changeLang1();
+        placeholder = 0
+    } else {
+        changeLang2();
+        placeholder = 1
+    }
+}
+
+function changeLang1() {
+let val = document.getElementsByClassName('user');
+let val1 = document.getElementsByClassName('in');
+let val2 = document.getElementsByClassName('mail');
+let val3 = document.getElementsByClassName('login?');
+let val4 = document.getElementsByClassName('link1');
+let val5 = document.getElementsByClassName('link2');
+let val6 = document.getElementsByClassName('link3');
+let val7 = document.getElementsByClassName('title1');
+let val8 = document.getElementsByClassName('title2');
+let val9 = document.getElementsByClassName('password');
+let val10 = document.getElementsByClassName('confirm')
+val[0].innerText = 'Username';
+val1[0].innerText = 'Log in';
+val2[0].innerText = 'Почта';
+val3[0].innerText = 'Have an account?';
+val4[0].innerText = 'Login';
+val5[0].innerText = 'Registration';
+val6[0].innerText = 'Mp3 file Convertation';
+val7[0].innerText = 'Audioconverter Atom';
+val8[0].innerText = 'Atom.Registration';
+val9[0].innerText = 'Password';
+val10[0].innerText = 'Confirm Password'
+document.getElementById('input1').setAttribute('value','Send')
+document.getElementById('button1').setAttribute('value', 'Русская версия')
+
+}
+
+function changeLang2() {
+let val = document.getElementsByClassName('user');
+let val1 = document.getElementsByClassName('in');
+let val2 = document.getElementsByClassName('mail');
+let val3 = document.getElementsByClassName('login?');
+let val4 = document.getElementsByClassName('link1');
+let val5 = document.getElementsByClassName('link2');
+let val6 = document.getElementsByClassName('link3');
+let val7 = document.getElementsByClassName('title1');
+let val8 = document.getElementsByClassName('title2');
+let val9 = document.getElementsByClassName('password');
+let val10 = document.getElementsByClassName('confirm')
+
+val[0].innerText = 'Имя пользователя';
+val1[0].innerText = 'Войти';
+val2[0].innerText = 'Email';
+val3[0].innerText = 'Уже есть аккаунт?';
+val4[0].innerText = 'Войти';
+val5[0].innerText = 'Регистрация';
+val6[0].innerText = 'Конвертация MP3 файла';
+val7[0].innerText = 'Аудиоконвертер Атом';
+val8[0].innerText = 'Атом.Регистрация';
+val9[0].innerText = 'Пароль';
+val10[0].innerText = 'Подтвердить пароль'
+document.getElementById('input1').setAttribute('value','Отправить')
+document.getElementById('button1').setAttribute('value', 'English Version')
+}
+
+function sendData() {
+let xhr = new XMLHttpRequest();
+xhr.open('POST','')
+xhr.send()
+}
+</script>
+</body>
+
+</html>
