@@ -8,7 +8,7 @@ import json
 import subprocess
 # from punctuator import Punctuator
 
-MODELS_DIR = '../models'
+MODELS_DIR = 'models'
 MODELS = {
     'ru': 'vosk-model-ru-0.10',
     'en': 'vosk-model-en-us-aspire-0.2'
