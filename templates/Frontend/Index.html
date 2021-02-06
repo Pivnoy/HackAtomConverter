@@ -1,14 +1,18 @@
+
 <!DOCTYPE html>
+
+{% load static %}
+
 <html>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
    <style>
        header {
-    background-image: url("Images/atombeta1.png"); left:50%; background-size: 15% auto;
+    background-image: url("../../static/Images/atombeta1.png"); left:50%; background-size: 15% auto;
        background-repeat: no-repeat;}
    </style>
 <header>
 <title class="title2">Загрузка файлов MP3</title>
-    <h1 class="title1">   Аудиоконвертер Атом</h1>
+    <h1 class="title1">Аудиоконвертер Атом</h1>
     <nav class="menu">
   <ul>
     <li><a class="link1" href="Login.html"> Вход</a></li>
@@ -23,32 +27,35 @@
 <title class="load1">Отправка файла MP3</title>
 </head>
 <body>
-<form enctype="multipart/form-data" method="post">
-<p><input type="file" name="f" multiple accept="audio/mp3"></p>
-<p><input class="send"  id="input1" type="submit" value="Отправить" onclick="sendData()"></p>
-<p class="load2"> Загрузка</p>
-<progress max="100" value="5" class="load3">
-Загрузка: <span id="value">5</span>%
-</progress>
-</form>
+    {% block content %}
+    <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <p><input type="file" name="aud" multiple accept="audio/mp3"></p>
+    <p><input class="send"  id="input1" type="submit" value="Отправить" onclick="sendData()"></p>
+    <p class="load2"> Загрузка</p>
+    <progress max="100" value="5" class="load3">
+    Загрузка: <span id="value">5</span>%
+    </progress>
+    </form>
+    {% endblock %}
 
 </body>
-<a> <img src="Images/atombeta.png" class="image"
+<a> <img src="../../static/Images/atombeta.png" class="image"
 />
 </a>
 <p><input id="button1" type="button" onclick="Lang()" value="English version" ></p>
 <script>
 let value = 1
 
-function Lang() {
-if (value === 1) {
-changeLang1();
-value = 0
-} else {
-changeLang2();
-value = 1
-}
-}
+    function Lang() {
+        if (value === 1) {
+            changeLang1();
+            value = 0
+        } else {
+            changeLang2();
+            value = 1
+        }
+    }
 
 function changeLang1() {
 let val = document.getElementsByClassName('load');

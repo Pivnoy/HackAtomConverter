@@ -1,5 +1,4 @@
 
-
 body {
   background-color: #1E90FF;
       margin: 50px 0 0 0;
@@ -29,7 +28,7 @@ header {
     text-align: justify;
     letter-spacing: 1px;
     height: 8em;
-    padding: 0px;
+    padding: 2em 10%;
     background: #2c3e50;
     color: #fff;
 }

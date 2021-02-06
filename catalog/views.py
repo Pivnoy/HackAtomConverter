@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     if request.method == 'POST':
         handle_uploaded_file(request.FILES['aud'])
-    return render(request, 'index.html')
+    return render(request, 'Frontend/Index.html')
 
 
 def handle_uploaded_file(userfile):
