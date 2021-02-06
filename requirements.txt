@@ -1,3 +1,4 @@
 vosk
 punctuator
 audio-metadata
+psycopg2
