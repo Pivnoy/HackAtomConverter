@@ -6,9 +6,10 @@ import sys
 import os
 import json
 import subprocess
+
 # from punctuator import Punctuator
 
-MODELS_DIR = 'models'
+MODELS_DIR = '../models'
 MODELS = {
     'ru': 'vosk-model-ru-0.10',
     'en': 'vosk-model-en-us-aspire-0.2'
@@ -16,15 +17,17 @@ MODELS = {
 PUNCTUATOR_MODEL = ''
 SetLogLevel(-1)
 
+
 def get_audio_stream(path, sample_rate=16000):
     if not os.path.exists(path):
         raise Exception('Invalid path')
 
     process = subprocess.Popen(['ffmpeg', '-loglevel', 'quiet', '-i',
-                            str(path),
-                            '-ar', str(sample_rate) , '-ac', '1', '-f', 's16le', '-'],
-                            stdout=subprocess.PIPE)
+                                str(path),
+                                '-ar', str(sample_rate), '-ac', '1', '-f', 's16le', '-'],
+                               stdout=subprocess.PIPE)
     return process
+
 
 def recongitize_vosk(path, model='ru', sample_rate=16000, progress_callback=None):
     if model not in MODELS:
@@ -40,31 +43,33 @@ def recongitize_vosk(path, model='ru', sample_rate=16000, progress_callback=None
             break
         it += 1
         rec.AcceptWaveform(data)
-    
+
     raw = json.loads(rec.FinalResult())
-    
+
     return raw
+
 
 def text_processing_ru(path, progress_callback=None):
     raw = recongitize_vosk(path, "ru", progress_callback=progress_callback)
 
     # TODO: Language processing
-    
+
     result = raw['text']
 
     return result
+
 
 def text_processing_en(path, progress_callback=None):
     raw = recongitize_vosk(path, "en", progress_callback=progress_callback)
 
     # TODO: Language processing
 
-    #p = Punctuator(PUNCTUATOR_MODEL)
-    #result = p.punctuate(raw['text'])
-    
+    # p = Punctuator(PUNCTUATOR_MODEL)
+    # result = p.punctuate(raw['text'])
+
     result = raw['text']
 
-    return result    
+    return result
 
 
 def text_processing(path, lang="ru", progress_callback=None):

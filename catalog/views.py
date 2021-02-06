@@ -1,13 +1,13 @@
 import os
+import time
+
 import psycopg2
 import uuid
-import glob, os
 from django.core.files import File
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 from catalog.forms import SignUpForm
-from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -38,15 +38,15 @@ def dataBaseWorker(fileName, pathToFile):
     con = psycopg2.connect(
         database="anna",
         user="anna",
-        password="atkdlib",
+        password="",
         host="127.0.0.1",
         port="5432"
     )
     cursor = con.cursor()
     cursor.execute("INSERT INTO TAB (audio, path, proc) VALUES (%s, %s, %s)", (fileName, pathToFile, False))
     con.commit()
-    cursor.execute("SELECT FROM TAB WHERE audio=%s", fileName)
-    row = cursor.fetchall()
+    # cursor.execute("SELECT FROM TAB WHERE audio=%s", fileName)
+    # row = cursor.fetchall()
 
 
 def signup(request):
@@ -84,3 +84,42 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('/')
+
+
+def download_file(request):
+    con = psycopg2.connect(
+        database="anna",
+        user="anna",
+        password="",
+        host="127.0.0.1",
+        port="5432"
+    )
+    cursor = con.cursor()
+    cursor.execute("SELECT * from TEXT WHERE proc=TRUE")
+    row = cursor.fetchall()
+    fileName = 'OutputFiles/' + str(row[0][0]) + '.txt'
+    file = open(fileName, 'rb')
+    myFile = File(file)
+    response = HttpResponse(myFile, content_type='file')
+    response['Content-Disposition'] = 'attachment; filename=input.txt'
+    return response
+
+
+def read_text(request):
+    con = psycopg2.connect(
+        database="anna",
+        user="anna",
+        password="",
+        host="127.0.0.1",
+        port="5432"
+    )
+    cursor = con.cursor()
+    cursor.execute("SELECT * from TEXT WHERE proc=TRUE")
+    row = cursor.fetchall()
+    fileName = 'OutputFiles/' + str(row[0][0]) + '.txt'
+    file = open(fileName, 'r', encoding='utf-8')
+    string = []
+    for f in file:
+        string.append(f)
+    html = "<p>%s</p>" % string[0]
+    return HttpResponse(html)
