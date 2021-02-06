@@ -25,9 +25,9 @@ def handle_uploaded_file(userfile):
 
 def dataBaseWorker(fileName, pathToFile):
     con = psycopg2.connect(
-        database="hackatom",
-        user="lubovmakareva",
-        password="",
+        database="anna",
+        user="anna",
+        password="atkdlib",
         host="127.0.0.1",
         port="5432"
     )
@@ -68,7 +68,6 @@ def user_login(request):
         return render(request, 'login.html', {})
 
 
-@login_required
 def user_logout(request):
     logout(request)
     return redirect('/')
