@@ -19,6 +19,7 @@ while True:
         file = open(fileName, 'w')
         file.write(base_text)
         file.close()
+        print('Writed', fileName)
         cursor.execute("UPDATE TEXT SET proc = TRUE WHERE id = %s", [row[0]])
         con.commit()
 

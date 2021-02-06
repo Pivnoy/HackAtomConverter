@@ -17,6 +17,8 @@ while True:
     rows = cursor.fetchall()
     for row in rows:
         cursor.execute("UPDATE TAB SET proc = TRUE WHERE id = %s", [row[0]])
+        print('Start processing', row[2])
         all_text = text_processing('../'+row[2])
+        print('End processing')
         cursor.execute("INSERT INTO TEXT VALUES (%s, %s, FALSE)", (row[0], all_text))
         con.commit()
