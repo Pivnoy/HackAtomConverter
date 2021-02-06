@@ -19,5 +19,5 @@ while True:
         cursor.execute("UPDATE TAB SET proc = TRUE WHERE id = %s", [row[0]])
         # all_text = text_processing(row)
         all_text = text_processing(row)
-        cursor.execute("INSERT INTO TEXT VALUES (%s, %s)", (row[0], all_text))
+        cursor.execute("INSERT INTO TEXT VALUES (%s, %s, %s)", (row[0], all_text, False))
         con.commit()
