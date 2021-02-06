@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<title class="title2">Атом.Вход</title>
+<link rel="stylesheet" href="style.css">
+<header>
+    <h1 class="title1">   Аудиоконвертер Атом</h1>
+    <nav class="menu">
+  <ul>
+    <li><a class="link1" href="Login.en.html"> Вход</a></li>
+    <li><a class="link2"  href="Registration.en.html"> Регистрация</a></li>
+    <li><a class="link3" href="Index.html">Загрузка MP3</a></li>
+  </ul>
+</nav>
+</header>
+<head>
+    <meta charset="UTF-8">
+    <title>Аудиоконвертер. Вход</title>
+</head>
+<body>
+<h1 class="in">Войти</h1>
+<div id="wrapper">
+	<form id="signin" method="" action="" autocomplete="off">
+		<input class="mail" type="text" id="user" name="user" placeholder="Логин(почтовый адрес)" />
+		<input class="password" type="password" id="pass" name="pass" placeholder="Пароль" />
+		<p><input id="input1" type="submit" value="Отправить" onclick="sendData()">
+		<p class="password?">Забыли пароль?<a class='remake' href="#">Восстановить</a></p>
+	</form>
+    </div>
+<a> <img src="Images/atombeta.png" class="image">
+</a>
+<p><input id="button1" type="button" onclick="Lang()" value="English version"></p>
+</body>
+<script>
+let value = 1
+
+function Lang() {
+if (value === 1) {
+changeLang1();
+value = 0
+} else {
+changeLang2();
+value = 1
+}
+}
+
+let placeholder = 1
+
+function Lang() {
+if (placeholder === 1) {
+changeLang1();
+placeholder = 0
+} else {
+changeLang2();
+placeholder = 1
+}
+}
+
+function changeLang1() {
+let val = document.getElementsByClassName('mail');
+let val1 = document.getElementsByClassName('in');
+let val2 = document.getElementsByClassName('remake');
+let val3 = document.getElementsByClassName('password?');
+let val4 = document.getElementsByClassName('link1');
+let val5 = document.getElementsByClassName('link2');
+let val6 = document.getElementsByClassName('link3');
+let val7 = document.getElementsByClassName('title1');
+let val8 = document.getElementsByClassName('title2');
+let val9 = document.getElementsByClassName('password');
+let val10 = document.getElementsByClassName('send');
+val[0].innerText = 'Username(mail address)';
+val1[0].innerText = 'Login';
+val2[0].innerText = 'Click here';
+val3[0].innerText = 'Forgot password?';
+val4[0].innerText = 'Login';
+val5[0].innerText = 'Registration';
+val6[0].innerText = 'Mp3 file Convertation';
+val7[0].innerText = 'Audioconverter Atom';
+val8[0].innerText = 'Atom.Login';
+val9[0].innerText = 'Password';
+document.getElementById('input1').setAttribute('value','Send')
+document.getElementById('button1').setAttribute('value', 'Русская версия')
+
+}
+
+function changeLang2() {
+let val = document.getElementsByClassName('mail');
+let val1 = document.getElementsByClassName('in');
+let val2 = document.getElementsByClassName('remake');
+let val3 = document.getElementsByClassName('password?');
+let val4 = document.getElementsByClassName('link1');
+let val5 = document.getElementsByClassName('link2');
+let val6 = document.getElementsByClassName('link3');
+let val7 = document.getElementsByClassName('title1');
+let val8 = document.getElementsByClassName('title2');
+let val9 = document.getElementsByClassName('password');
+let val10 = document.getElementsByClassName('send');
+
+val[0].innerText = 'Логин(почтовый адрес)';
+val1[0].innerText = 'Войти';
+val2[0].innerText = 'Восстановить';
+val3[0].innerText = 'Загрузить:';
+val4[0].innerText = 'Войти';
+val5[0].innerText = 'Регистрация';
+val6[0].innerText = 'Конвертация MP3 файла';
+val7[0].innerText = 'Аудиоконвертер Атом';
+val8[0].innerText = 'Атом.Вход';
+val9[0].innerText = 'Пароль';
+document.getElementById('input1').setAttribute('value','Отправить')
+document.getElementById('button1').setAttribute('value', 'English Version')
+}
+
+function sendData() {
+let xhr = new XMLHttpRequest();
+xhr.open('POST','')
+xhr.send()
+}
+</script>
+</html>
